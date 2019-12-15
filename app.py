@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 #You can try out the bot on telegram @heipo_bot
 
-bot_token = '923318507:AAE-depGvag0yiddf1_x8iY7vyhJDCVNMys'
+bot_token = 'bot_token'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 
