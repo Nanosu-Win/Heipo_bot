@@ -125,7 +125,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://fathomless-oasis-41550.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='herokuwebsite' + bot_token)
     return "!", 200
 
 if __name__ == "__main__":
