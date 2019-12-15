@@ -31,7 +31,7 @@ def greeting(message):
 def help(message):
     bot.reply_to(message, "@(name without bracket) for instagram\n"
                           "#(name without bracket) for twitter\n"
-                          "/news for news from CNA Website")
+                          "/news for news from Website")
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 def at_instagram(message):
@@ -48,73 +48,17 @@ def at_twitter(message):
     bot.reply_to(message,'https://twitter.com/hashtag/{}'.format(at_text[1:]))
 
 
-'''@bot.message_handler(commands='news')
+@bot.message_handler(commands='news') #getting information from various websites
 def at_news(message):
-    url_get = requests.get("https://www.channelnewsasia.com/news/singapore")
+    url_get = requests.get("website")
     url_text = url_get.text
 
     soup_text = BeautifulSoup(url_text, "html.parser")
     single_story = soup_text.findAll("h3", {"class": "teaser__heading"})
 
-    def search():
+    def search()
 
-        bool = True
-        while bool == True:
-            title0 = single_story[0].a.text
-            link0 = single_story[0].a.get("href")
-            title1 = single_story[1].a.text
-            link1 = single_story[1].a.get("href")
-            title2 = single_story[2].a.text
-            link2 = single_story[2].a.get("href")
-            title3 = single_story[3].a.text
-            link3 = single_story[3].a.get("href")
-            title4 = single_story[4].a.text
-            link4 = single_story[4].a.get("href")
-            title5 = single_story[5].a.text
-            link5 = single_story[5].a.get("href")
-            title6 = single_story[6].a.text
-            link6 = single_story[6].a.get("href")
-            title7 = single_story[7].a.text
-            link7 = single_story[7].a.get("href")
-            title8 = single_story[8].a.text
-            link8 = single_story[8].a.get("href")
-            title9 = single_story[9].a.text
-            link9 = single_story[9].a.get("href")
-            title10 = single_story[10].a.text
-            link10 = single_story[10].a.get("href")
-            title11 = single_story[11].a.text
-            link11 = single_story[11].a.get("href")
-
-            bool = False
-
-    # ",".join(list_news)
-        bot.reply_to(message,
-        title0 + "\n" +
-        "www.channelnewsasia.com"+link0 + "\n\n"+
-        title1 + "\n"+
-        "www.channelnewsasia.com"+link1 + "\n\n"+
-        title2 + "\n"+
-        "www.channelnewsasia.com"+link2 + "\n\n"+
-        title3 + "\n"+
-        "www.channelnewsasia.com"+link3 + "\n\n"+
-        title4 + "\n"+
-        "www.channelnewsasia.com"+link4 + "\n\n"+
-        title5 + "\n"+
-        "www.channelnewsasia.com"+link5 + "\n\n"+
-        title6 + "\n"+
-        "www.channelnewsasia.com"+link6 + "\n\n"+
-        title7 + "\n"+
-        "www.channelnewsasia.com"+link7 + "\n\n"+
-        title8 + "\n"+
-        "www.channelnewsasia.com"+link8 + "\n\n"+
-        title9 + "\n"+
-        "www.channelnewsasia.com"+link9 + "\n\n"+
-        title10 + "\n"+
-        "www.channelnewsasia.com"+link10 + "\n\n"+
-        title11 + "\n"+
-        "www.channelnewsasia.com"+link11 + "\n\n")
-
-    search()'''
+    search()
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
