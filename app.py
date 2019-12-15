@@ -48,7 +48,7 @@ def at_twitter(message):
     bot.reply_to(message,'https://twitter.com/hashtag/{}'.format(at_text[1:]))
 
 
-@bot.message_handler(commands='news')
+'''@bot.message_handler(commands='news')
 def at_news(message):
     url_get = requests.get("https://www.channelnewsasia.com/news/singapore")
     url_text = url_get.text
@@ -114,7 +114,7 @@ def at_news(message):
         title11 + "\n"+
         "www.channelnewsasia.com"+link11 + "\n\n")
 
-    search()
+    search()'''
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
