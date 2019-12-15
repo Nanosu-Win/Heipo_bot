@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 #You can try out the bot on telegram @heipo_bot
 
-bot_token = '923318507:AAEY6DIFrMNJq0ZNakqh6UrBznfxMWMIZCo'
+bot_token = '923318507:AAE-depGvag0yiddf1_x8iY7vyhJDCVNMys'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 
@@ -23,7 +23,7 @@ def find_at(msg):
 
 @bot.message_handler(commands=['start'])
 def greeting(message):
-    bot.reply_to(message, "Hello" + message.from_user.first_name +
+    bot.reply_to(message, "Hello " + message.from_user.first_name +
                  "\nThis is a non-profit miniproject that anyone can use.\n"+
                  "Use /help for more information =)")
 
@@ -125,9 +125,8 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://powerful-escarpment-56788.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://fathomless-oasis-41550.herokuapp.com/' + bot_token)
     return "!", 200
-
 
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
